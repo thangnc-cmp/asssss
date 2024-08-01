@@ -17,6 +17,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Check if user is allowed
+        run: |
+          authorized_users=("thangnc-cmp")  # Replace with your team's GitHub usernames
+          if [[ ! " ${authorized_users[@]} " =~ " ${GITHUB_ACTOR} " ]]; then
+            echo "You are not authorized to run this workflow."
+            exit 1
+          fi
+    
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
