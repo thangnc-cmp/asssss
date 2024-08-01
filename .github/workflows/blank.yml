@@ -6,13 +6,6 @@ name: CI
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    permissions:
-      users:
-        - username
-    inputs:
-      tags:
-        required: true
-        type: choice
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,6 +13,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
