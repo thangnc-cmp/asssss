@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Check if user is allowed
         run: |
-          authorized_users=("thangnc-cmp")  # Replace with your team's GitHub usernames
+          authorized_users=("thangnc-cmsssssssp")  # Replace with your team's GitHub usernames
           if [[ ! " ${authorized_users[@]} " =~ " ${GITHUB_ACTOR} " ]]; then
             echo "You are not authorized to run this workflow."
             exit 1
